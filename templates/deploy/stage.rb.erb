@@ -1,0 +1,20 @@
+set :deploy_to, "/home/rails/<%= @app_name %>"
+server "yteam.thekono.com", :app, :web, :db, :primary => true
+set :branch, :<%= config[:stage] == 'production' ? 'master' : 'development' %>
+
+namespace :deploy do
+  desc "Create database.yml in config"
+  task :update_db_config do
+    db_config = "#{shared_path}/config/database.yml.<%= config[:stage] %>"
+    run "ln #{db_config} #{release_path}/config/database.yml"
+  end
+
+  desc "Link local settings to config/local_settings.yml"
+  task :update_local_settings do
+    local_settings = "#{shared_path}/config/local_settings.yml.<%= config[:stage] %>"
+    run "ln #{local_settings} #{release_path}/config/local_settings.yml"
+  end
+end
+
+after "deploy:update_code", "deploy:update_db_config"
+after "deploy:update_code", "deploy:update_local_settings"
