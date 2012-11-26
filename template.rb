@@ -19,17 +19,15 @@ gem 'execjs'
 gem 'therubyracer'
 
 # rspec and spork setting
-gem_group :test do 
-  gem 'rspec-rails'
-  gem 'webrat'
-  gem 'spork'
+gem 'rspec-rails'
+gem 'webrat'
+gem 'spork'
 
-  after_bundle do 
-    generate 'rspec:install'
-    run "bundle exec spork --bootstrap"
-    inject_spork_config_snippet
-    append_to_file ".rspec", "--drb" 
-  end
+after_bundle do 
+  generate 'rspec:install'
+  run "bundle exec spork --bootstrap"
+  inject_spork_config_snippet
+  append_to_file ".rspec", "--drb" 
 end
 
 def inject_spork_config_snippet
