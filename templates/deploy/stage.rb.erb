@@ -1,4 +1,4 @@
-set :deploy_to, "/home/rails/<%= @app_name %>"
+set :deploy_to, "/home/rails/<%= "#{@app_name}_#{config[:stage]}" %>"
 server "yteam.thekono.com", :app, :web, :db, :primary => true
 set :branch, :<%= config[:stage] == 'production' ? 'master' : 'development' %>
 
