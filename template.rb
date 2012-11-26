@@ -59,6 +59,7 @@ if yes?("would you like to install Capistrano?")
     if @recipes.include? "delayed_job"
       append_delayed_job_cap_recipe
     end
+    run "capify ."
   end
 end
 
