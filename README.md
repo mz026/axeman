@@ -1,4 +1,4 @@
-## Rails application template
+## Axeman: Rails application template
 
 ### usage: `rails new -m /path/to/template.rb <app_name>`
 
