@@ -16,5 +16,5 @@ namespace :deploy do
   end
 end
 
-after "deploy:update_code", "deploy:update_db_config"
-after "deploy:update_code", "deploy:update_local_settings"
+after "deploy:finalize_update", "deploy:update_db_config"
+after "deploy:finalize_update", "deploy:update_local_settings"
