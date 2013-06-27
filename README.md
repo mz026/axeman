@@ -1,6 +1,6 @@
 ## Axeman: Rails application template
 
-### usage: `rails new -m /path/to/template.rb <app_name>`
+### usage: `rails new <app_name> -m /path/to/template.rb`
 
 - including gems:  
   - ``mysql2``
